@@ -1,0 +1,59 @@
+<div class="back text-white">
+  <div class="header">
+    <div class="container">
+      <div class="row">
+        <div class="col text-center my-5">
+          <h1>Finding The Falcone</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf='status === 1'>
+    <div class="container">
+      <div class="row">
+        <div class="col text-center my-5 text-white">
+          <h4>Success! Congratulation on Finding Queen Falcon. King Shan is mighty pleased.</h4>
+
+          <img class="w-75" src="https://static1.squarespace.com/static/56c63f2e60b5e985adc851ee/t/5b6bf3fa21c67c4f216e1e41/1533801471963/congratulations.png"
+            height="200px">
+
+          <h4 class="my-5">Planet Found: {{resultantPlanet}}</h4>
+          <h4>Total time taken: {{time}}</h4>
+
+          <button class="my-5 btn" (click)='reload()' routerLink="/index">Start Again</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div *ngIf='status === 0'>
+    <div class="container">
+      <div class="row">
+        <div class="col text-center my-5">
+
+          <img class="w-75" src="https://pngimage.net/wp-content/uploads/2018/06/oops-png-4.png" height="200px">
+          <h4 class="my-5">Oops! Fails on Finding Queen Falcon. King Shan is displeased.</h4>
+
+          <button (click)='reload()' class="my-5 btn" routerLink="/index">Start Again</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div *ngIf='status === null'>
+    <div class="container">
+      <div class="row">
+        <div class="col text-center my-5">
+
+          <img class="w-75" src="https://pngimage.net/wp-content/uploads/2018/06/sorry-png-6.png" height="200px">
+          <h4 class="my-5">Something went wrong!</h4>
+
+          <button (click)='reload()' class="my-5 btn" routerLink="/index">Start Again</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

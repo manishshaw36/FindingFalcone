@@ -1,0 +1,145 @@
+<div class="back text-white">
+  <div class="header pt-5">
+    <div class="container">
+      <div class="row">
+        <div class="col text-center">
+          <h1>Finding The Falcone</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="container">
+
+    <div class="row">
+      <div class="col">
+        <div class="text-center my-3">
+          <h3 class="float-md-right">Total Time Taken: {{time}}</h3>
+          <h2 class="pt-5">Select planets which you want to search in:</h2>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+
+      <div class="col-md-6 text-center my-3">
+
+        <h2>Destination 1</h2>
+
+        <button class="form-control btn btn-dark box" (click)='select(planet1)' #selectedPlanet1 id="planet1">Select Planet</button>
+
+        <div class="dropdown" style="display: none" #planet1>
+          <button class="form-control btn btn-muted" *ngFor='let p of select_planets' (click)='myPlanet(p,selectedPlanet1,planet1,selectedVehicle1,"1")'
+            id="{{p.name}}1" title="Distance: {{p.distance}}">{{p.name}}</button>
+        </div>
+
+        <button class="form-control btn btn-secondary my-3 w-75 box" style="display: none" id="veh1" (click)='select(vehicle1)'
+          #selectedVehicle1>Select Vehicle</button>
+
+        <div class="dropdown text-center w-75 " style="display: none; margin-left: 12.5%" #vehicle1>
+
+          <button class="form-control btn btn-muted" *ngFor='let v of select_vehicles' (click)='myVehicle(v,selectedVehicle1,vehicle1,1)'
+            id="{{v.name}}1" title="Speed: {{v.speed}}, Max-Distance: {{v.max_distance}}">{{v.name}}
+            (Unit:{{v.total_no}})</button>
+
+        </div>
+
+      </div>
+
+      <div class="col-md-6 text-center my-3">
+
+        <h2>Destination 2</h2>
+
+        <button class="form-control btn btn-dark box" (click)='select(planet2)' #selectedPlanet2 disabled id="planet2">Select Planet</button>
+
+        <div class="dropdown" style="display: none" #planet2>
+
+          <button class="form-control btn btn-muted" *ngFor='let p of select_planets' (click)='myPlanet(p,selectedPlanet2,planet2,selectedVehicle2,"2")'
+            id="{{p.name}}2" title="Distance: {{p.distance}}">{{p.name}}</button>
+
+        </div>
+
+        <button class="form-control btn btn-secondary my-3 w-75 box" id="veh2" style="display: none" (click)='select(vehicle2)'
+          #selectedVehicle2>Select Vehicle</button>
+
+        <div class="dropdown text-center w-75 " style="display: none; margin-left: 12.5%" #vehicle2>
+
+          <button class="form-control btn btn-muted" *ngFor='let v of select_vehicles' (click)='myVehicle(v,selectedVehicle2,vehicle2,2)'
+            id="{{v.name}}2" title="Speed: {{v.speed}}, Max-Distance: {{v.max_distance}}">{{v.name}} (Unit:
+            {{v.total_no}})</button>
+
+        </div>
+
+      </div>
+
+      <div class="col-md-6 text-center my-3">
+
+        <h2>Destination 3</h2>
+
+        <button class="form-control btn btn-dark box" (click)='select(planet3)' id="planet3" #selectedPlanet3 disabled>Select
+          Planet</button>
+
+        <div class="dropdown" style="display: none" #planet3>
+
+          <button class="form-control btn btn-muted" *ngFor='let p of select_planets' (click)='myPlanet(p,selectedPlanet3,planet3,selectedVehicle3,"3")'
+            id="{{p.name}}3" title="Distance: {{p.distance}}">{{p.name}}</button>
+
+        </div>
+
+        <button class="form-control btn btn-secondary my-3 w-75 box" id="veh3" style="display: none" (click)='select(vehicle3)'
+          #selectedVehicle3>Select Vehicle</button>
+
+        <div class="dropdown text-center w-75 " style="display: none; margin-left: 12.5%" #vehicle3>
+
+          <button class="form-control btn btn-muted" *ngFor='let v of select_vehicles' (click)='myVehicle(v,selectedVehicle3,vehicle3,3)'
+            id="{{v.name}}3" title="Speed: {{v.speed}}, Max-Distance: {{v.max_distance}}">{{v.name}} (Unit:
+            {{v.total_no}})</button>
+
+        </div>
+
+      </div>
+
+      <div class="col-md-6 text-center my-3">
+
+        <h2>Destination 4</h2>
+
+        <button class="form-control btn btn-dark box" (click)='select(planet4)' id="planet4" #selectedPlanet4 disabled>Select Planet</button>
+
+        <div class="dropdown" style="display: none" #planet4>
+
+          <button class="form-control btn btn-muted" *ngFor='let p of select_planets' (click)='myPlanet(p,selectedPlanet4,planet4,selectedVehicle4,"4")'
+            id="{{p.name}}4" title="Distance: {{p.distance}}">{{p.name}}</button>
+
+        </div>
+
+        <button class="form-control btn btn-secondary my-3 w-75 box" id="veh4" style="display: none" (click)='select(vehicle4)'
+          #selectedVehicle4>Select Vehicle</button>
+
+        <div class="dropdown text-center w-75 " style="display: none; margin-left: 12.5%" #vehicle4>
+
+          <button class="form-control btn btn-muted" *ngFor='let v of select_vehicles' (click)='myVehicle(v,selectedVehicle4,vehicle4,4)'
+            id="{{v.name}}4" title="Speed: {{v.speed}}, Max-Distance: {{v.max_distance}}">{{v.name}} (Unit:
+            {{v.total_no}})</button>
+
+        </div>
+
+      </div>
+    </div>
+
+  </section>
+
+  <section class="pb-4">
+    <div class="container my-5">
+      <div class="row">
+        <div class="col text-center">
+
+          <button class="form-control btn btn-success" (click)="find(selectedPlanet1,selectedPlanet2,selectedPlanet3,selectedPlanet4,selectedVehicle1,selectedVehicle2,selectedVehicle3,selectedVehicle4)">Find
+            Falcone</button>
+
+          <button class="form-control btn btn-warning w-50 my-3" (click)='reload()'>Reset</button>
+
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
